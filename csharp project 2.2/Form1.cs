@@ -23,37 +23,11 @@ namespace csharp_project__2._2
 
             if (initTime > threshold)
             {
-                string logMessage = $"Czas inicjalizacji komponentów przekroczy³ próg: {initTime.TotalSeconds} sekund.";
+                string logMessage = $"Czas inicjalizacji komponentÃ³w przekroczyÂ³ prÃ³g: {initTime.TotalSeconds} sekund.";
                 EventLog.WriteEntry("Application", logMessage, EventLogEntryType.Warning);
             }
         }
 
-        private void ButtonEquals_Click(object sender, EventArgs e)
-        {
-            string expression = textBox1.Text;
-            try
-            {
-                double result = EvaluateExpression(expression);
-                textBox1.Text = result.ToString();
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("B³¹d: " + ex.Message, "B³¹d", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-        }
-
-        private void ButtonClear_Click(object sender, EventArgs e)
-        {
-            textBox1.Clear();
-        }
-
-        private void ButtonClearEntry_Click(object sender, EventArgs e)
-        {
-            if (!string.IsNullOrEmpty(textBox1.Text))
-            {
-                textBox1.Text = textBox1.Text.Substring(0, textBox1.Text.Length - 1);
-            }
-        }
         private double EvaluateExpression(string expression)
         {
             char op = ' ';
@@ -78,11 +52,11 @@ namespace csharp_project__2._2
                 case '/':
                     if (right == 0)
                     {
-                        throw new DivideByZeroException("Nie mo¿na dzieliæ przez zero.");
+                        throw new DivideByZeroException("Nie moÂ¿na dzieliÃ¦ przez zero.");
                     }
                     return left / right;
                 default:
-                    throw new InvalidOperationException("Niepoprawne wyra¿enie arytmetyczne.");
+                    throw new InvalidOperationException("Niepoprawne wyraÂ¿enie arytmetyczne.");
             }
         }
 
@@ -182,7 +156,7 @@ namespace csharp_project__2._2
             }
             catch (Exception ex)
             {
-                MessageBox.Show("B³¹d: " + ex.Message, "B³¹d", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("BÂ³Â¹d: " + ex.Message, "BÂ³Â¹d", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
