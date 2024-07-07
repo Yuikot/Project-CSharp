@@ -28,32 +28,6 @@ namespace csharp_project__2._2
             }
         }
 
-        private void ButtonEquals_Click(object sender, EventArgs e)
-        {
-            string expression = textBox1.Text;
-            try
-            {
-                double result = EvaluateExpression(expression);
-                textBox1.Text = result.ToString();
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("B³¹d: " + ex.Message, "B³¹d", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-        }
-
-        private void ButtonClear_Click(object sender, EventArgs e)
-        {
-            textBox1.Clear();
-        }
-
-        private void ButtonClearEntry_Click(object sender, EventArgs e)
-        {
-            if (!string.IsNullOrEmpty(textBox1.Text))
-            {
-                textBox1.Text = textBox1.Text.Substring(0, textBox1.Text.Length - 1);
-            }
-        }
         private double EvaluateExpression(string expression)
         {
             char op = ' ';
