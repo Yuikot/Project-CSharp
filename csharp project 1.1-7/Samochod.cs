@@ -1,57 +1,81 @@
-﻿
-class Samochod
+﻿class Samochod
 {
-    public string Marka { get; set; }
-    public string Model { get; set; }
-    public int IloscDrzwi { get; set; }
-    public double PojemnoscSilnika { get; set; }
-    public double SrednieSpalanie { get; set; }
+    private string marka;
+    private string model;
+    private int iloscDrzwi;
+    private double pojemnoscSilnika;
+    private double srednieSpalanie;
+    public string Marka
+    {
+        get { return marka; }
+        set { marka = value; }
+    }
+
+    public string Model
+    {
+        get { return model; }
+        set { model = value; }
+    }
+    public int IloscDrzwi
+    {
+        get { return iloscDrzwi; }
+        set { iloscDrzwi = value; }
+    }
+
+    public double PojemnoscSilnika
+    {
+        get { return pojemnoscSilnika; }
+        set { pojemnoscSilnika = value; }
+    }
+    public double SrednieSpalanie
+    {
+        get { return srednieSpalanie; }
+        set { srednieSpalanie = value; }
+    }
 
     private static int iloscSamochodow = 0;
 
     public Samochod()
     {
-        Marka = "nieznana";
-        Model = "nieznany";
-        IloscDrzwi = 0;
-        PojemnoscSilnika = 0.0;
-        SrednieSpalanie = 0.0;
+        marka = "nieznana";
+        model = "nieznany";
+        iloscSamochodow = 0;
+        pojemnoscSilnika = 0.0;
+        srednieSpalanie = 0.0;
         iloscSamochodow++;
     }
 
-
-    public Samochod(string marka, string model, int iloscDrzwi, double pojemnoscSilnika, double srednieSpalanie)
+    public Samochod(string marka_, string model_, int iloscDrzwi_, int pojemnoscSilnika_, double srednieSpalanie_)
     {
-        Marka = marka;
-        Model = model;
-        IloscDrzwi = iloscDrzwi;
-        PojemnoscSilnika = pojemnoscSilnika;
-        SrednieSpalanie = srednieSpalanie;
         iloscSamochodow++;
+        marka = marka_;
+        model = model_;
+        iloscDrzwi = iloscDrzwi_;
+        pojemnoscSilnika = pojemnoscSilnika_;
+        srednieSpalanie = srednieSpalanie_;
     }
-
-
     private double ObliczSpalanie(double dlugoscTrasy)
     {
-        return (SrednieSpalanie * dlugoscTrasy) / 100.0;
+        double spalanie = (pojemnoscSilnika * dlugoscTrasy) / 100;
+        return spalanie;
     }
 
-
-    public double ObliczKosztPrzejazdu(double dlugoscTrasy, double cenaPaliwa)
+    public double ObliczKosztPrzejazdu(double spalanie, double cenaPaliwa)
     {
-        double spalanie = ObliczSpalanie(dlugoscTrasy);
-        return spalanie * cenaPaliwa;
+        double kosztPrzejazdu = spalanie * cenaPaliwa;
+        return kosztPrzejazdu;
     }
-
-
     public void WypiszInfo()
     {
-        Console.WriteLine($"Marka: {Marka}, Model: {Model}, Ilość drzwi: {IloscDrzwi}, Pojemność silnika: {PojemnoscSilnika} l, Średnie spalanie: {SrednieSpalanie} l/100km");
+        Console.WriteLine("Marka: " + marka);
+        Console.WriteLine("Model: " + model);
+        Console.WriteLine("Ilość drzwi: " + iloscDrzwi);
+        Console.WriteLine("Pojemność silnika: " + pojemnoscSilnika);
+        Console.WriteLine("Średnie spalanie: " + srednieSpalanie);
     }
-
-
     public static void WypiszIloscSamochodow()
     {
-        Console.WriteLine($"Liczba utworzonych samochodów: {iloscSamochodow}");
+        Console.WriteLine("Liczba samochodów: " + iloscSamochodow);
     }
+
 }

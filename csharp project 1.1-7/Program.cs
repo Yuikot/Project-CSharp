@@ -1,7 +1,6 @@
 ﻿using System.Diagnostics;
 using System.Text;
 
-
 void z1()
 {
     Samochod s1 = new Samochod();
